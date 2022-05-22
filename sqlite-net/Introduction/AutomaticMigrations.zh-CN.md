@@ -1,4 +1,4 @@
-﻿﻿﻿# Automatic Migrations 
+﻿﻿# Automatic Migrations 
 
    Code changes. Sometimes you need to associate new values with tables (entities) after the database has already been deployed and used for some time.
 

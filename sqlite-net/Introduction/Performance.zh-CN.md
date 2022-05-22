@@ -1,4 +1,4 @@
-﻿﻿# Performance
+﻿# Performance
 
 ## Serializing 5000 objects on iOS 5 with an iPhone 4S
 

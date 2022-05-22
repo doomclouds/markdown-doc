@@ -1,4 +1,4 @@
-﻿# Getting Started 
+﻿﻿﻿﻿# Getting Started 
 
  **sqlite-net** is designed to make working with SQLite very easy in a .NET environment.
 
@@ -44,11 +44,13 @@
   Next, we create a `DatabaseHandler` class. This class will handle the generation of our tables, as well as our queries and commands.
 
   ```c#
-  public class DatabaseHandler {
+  public class DatabaseHandler
+  {
   
       private SQLiteConnection _db;
       
-      public DatabaseHandler() {
+      public DatabaseHandler() 
+      {
           
           _db = new SQLiteConnection("path/to/your/database");
           _db.CreateTable<Stock>();
@@ -62,9 +64,11 @@
   Now that the database has been successfully mapped, we can begin performing queries on the data. Let's start by inserting a new row into the `Stock` table.
 
   ```c#
-  public void AddStock() {	
-      
-      var stock = new Stock{		
+  public void AddStock()
+  {	
+     
+      var stock = new Stock
+      {		
           Symbol = "MSFT"		
       };
   
@@ -88,4 +92,4 @@
   }		
   ```
 
-  And that's it! Now that you're all set, learn about the basic commands using the [Synchronous API Docs](Synchronous API.md).
+  And that's it! Now that you're all set, learn about the basic commands using the [Synchronous API Docs](SynchronousAPI.md).

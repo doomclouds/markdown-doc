@@ -1,4 +1,4 @@
-﻿﻿# Transactions
+﻿# Transactions
 
    Library supports nested transactions. They are available both in synchronous and asynchronous API.
 
@@ -45,3 +45,5 @@
    ## Handling Errors
 
    If your transaction code throws an exception, it will be bubbled up to the caller of `RunInTransaction` after the transaction is rolled back.
+
+   [ Add a custom footer](https://github.com/praeclarum/sqlite-net/wiki/_new?wiki[name]=_Footer)

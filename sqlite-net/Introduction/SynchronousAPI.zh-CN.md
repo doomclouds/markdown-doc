@@ -1,4 +1,4 @@
-﻿﻿﻿  # Introduction
+﻿  # Introduction
 
   The library supports both synchronous and asynchronous requests to your SQLite tables. This guide will demonstrate how to make synchronous calls to your database. First of all, all connections made using the synchronous API must be made using the `SQLiteConnection` class. The example below shows how to initialise this class
 
@@ -23,26 +23,25 @@
 
   ```c#
   [Table("records")]
-  public class Record
-  {
-      [PrimaryKey] 
-      [Column("id")]
-      public Guid Id
-      { get; set; }
+      public class Record
+      {
+          [PrimaryKey] 
+          [Column("id")]
+          public Guid Id
+          { get; set; }
   
-      [Column("name")]
-      public string Name
-      { get; set; }
+          [Column("name")]
+          public string Name
+          { get; set; }
   
-      [Column("age")]
-      public int Age
-      { get; set; }
+          [Column("age")]
+          public int Age
+          { get; set; }
   
-      [Column("date")]
-      public DateTime Date
-      { get; set; }
-  }
-  
+          [Column("date")]
+          public DateTime Date
+          { get; set; }
+      }
   public void GetRecords() 
   {
       var options = new SQLiteConnectionString(DataSource, false);
@@ -118,7 +117,7 @@
 
   This is a quick demonstration of how to perform an update query using LINQ. The `conn.Update(record)` function uses the primary key of `record` (in this case, `record.Id`) to locate the record to update in the database. A consequence of this is that you cannot update the primary key ([you shouldn't be doing this anyway](https://stackoverflow.com/a/19316940/7511598)).
 
-  ```c#
+  ```
   public void UpdateRecord(Guid id) 
   {
       var options = new SQLiteConnectionString(DataSource, false);
@@ -138,7 +137,7 @@
 
   The `Delete` Statement works similarly to a get request. You choose the table mapping you wish to use and then pass in a query parameter. In common instances, you delete records using the record's `Primary Key`. This property was set in the Record class;
 
-  ```c#
+  ```
   public void DeleteRecord(string id) 
   {
       var options = new SQLiteConnectionString(DataSource, false);
@@ -149,6 +148,6 @@
   }
   ```
 
-
+  
 
   This ensures that the record with the associated PK will be removed.

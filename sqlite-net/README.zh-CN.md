@@ -1,11 +1,11 @@
-﻿﻿[English](README.md)|中文
+﻿﻿﻿[English](README.md)|中文
 
-Welcome to sqlite-net, the simple and fast ORM and sqlite driver.
+sqlite-net是一个简单快速的ORM和SQLITE驱动包.
 
-- [Getting Started](Introduction/Getting Started.md)
-- [Using the Synchronous API](Introduction/Synchronous API.md)
-- [Using the Async API](Introduction/Asynchronous API.md)
-- [Features](Introduction/Features.md)
-  - [Transactions](Introduction/Transactions.md)
-  - [Automatic Migrations](Introduction/Automatic Migrations)
-- [Performance](Introduction/Performance.md)
+- [开始](Introduction/GettingStarted.zh-CN.md)
+- [同步API](Introduction/SynchronousAPI.zh-CN.md)
+- [异步API](Introduction/AsynchronousAPI.zh-CN.md)
+- [特性](Introduction/Features.zh-CN.md)
+  - [事务](Introduction/Transactions.zh-CN.md)
+  - [自动迁移](Introduction/AutomaticMigrations.zh-CN.md)
+- [性能](Introduction/Performance.zh-CN.md)
