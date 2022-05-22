@@ -1,11 +1,11 @@
-﻿﻿English|[中文](README.zh-CN.md)
+﻿﻿﻿English|[中文](README.zh-CN.md)
 
 Welcome to sqlite-net, the simple and fast ORM and sqlite driver.
 
-- [Getting Started](Introduction/Getting Started.md)
-- [Using the Synchronous API](Introduction/Synchronous API.md)
-- [Using the Async API](Introduction/Asynchronous API.md)
+- [Getting Started](Introduction/GettingStarted.md)
+- [Using the Synchronous API](Introduction/SynchronousAPI.md)
+- [Using the Async API](Introduction/AsynchronousAPI.md)
 - [Features](Introduction/Features.md)
   - [Transactions](Introduction/Transactions.md)
-  - [Automatic Migrations](Introduction/Automatic Migrations)
+  - [Automatic Migrations](Introduction/AutomaticMigrations)
 - [Performance](Introduction/Performance.md)
