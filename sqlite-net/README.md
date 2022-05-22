@@ -7,5 +7,5 @@ Welcome to sqlite-net, the simple and fast ORM and sqlite driver.
 - [Using the Async API](Introduction/AsynchronousAPI.md)
 - [Features](Introduction/Features.md)
   - [Transactions](Introduction/Transactions.md)
-  - [Automatic Migrations](Introduction/AutomaticMigrations)
+  - [Automatic Migrations](Introduction/AutomaticMigrations.md)
 - [Performance](Introduction/Performance.md)
