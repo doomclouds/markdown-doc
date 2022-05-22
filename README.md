@@ -1,2 +1,2 @@
 # markdown-doc
-markdown document translate
+translate documents
