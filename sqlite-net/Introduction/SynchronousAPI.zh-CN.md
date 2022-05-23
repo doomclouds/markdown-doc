@@ -1,6 +1,6 @@
-﻿  # Introduction
+﻿﻿﻿  # 介绍
 
-  The library supports both synchronous and asynchronous requests to your SQLite tables. This guide will demonstrate how to make synchronous calls to your database. First of all, all connections made using the synchronous API must be made using the `SQLiteConnection` class. The example below shows how to initialise this class
+  本库支持对SQLite的同步与异步操作。本指南将会演示如何同步的去调用您的数据库。 首先， 所有的同步API都必须使用`SQLiteConnection`类。 下面将展示如何初始化这个类。
 
   ```c#
   SQLiteConnection _connection;
@@ -15,33 +15,34 @@
   }
   ```
 
-  Now your object has been initialised and a connection opened, you can now start making queries.
+  现在您已经初始化并打开了该对象的连接，现在可以开始查询数据库了。
 
-  ## Select Query
+  ## Select查询
 
-  The library supports multiple ways of performing a select query in your database and you can perform queries using SQL or LINQ. There is no real benefit of using one over the other, however, it is cleaner to use Linq over SQL as it makes your overall code base more consistent. Below is an example of a Select query using the SQL method. Included is the class table mapping used for this section
+  本库支持在数据库中执行Select查询的多种方式，您可以选择使用SQL或者LINQ的方式。两种方式各有千秋， 但是，使用Linq比SQL更加简洁，因为它使得您的代码更符合.Net的习惯 。下面是一个使用SQL方法的Select查询示例。 包括本节使用的类表映射
 
   ```c#
   [Table("records")]
-      public class Record
-      {
-          [PrimaryKey] 
-          [Column("id")]
-          public Guid Id
-          { get; set; }
+  public class Record
+  {
+      [PrimaryKey] 
+      [Column("id")]
+      public Guid Id
+      { get; set; }
   
-          [Column("name")]
-          public string Name
-          { get; set; }
+      [Column("name")]
+      public string Name
+      { get; set; }
   
-          [Column("age")]
-          public int Age
-          { get; set; }
+      [Column("age")]
+      public int Age
+      { get; set; }
   
-          [Column("date")]
-          public DateTime Date
-          { get; set; }
-      }
+      [Column("date")]
+      public DateTime Date
+      { get; set; }
+  }
+  
   public void GetRecords() 
   {
       var options = new SQLiteConnectionString(DataSource, false);
@@ -55,9 +56,9 @@
   }
   ```
 
-  The `Query` method requires a type () in order to query the correct table. In this example, the `Record` class has been mapped to the `records` table. So by declaring `Record` as the `Query` type the library can now use the mapped table.
+  `Query`方法需要一个泛型指示要查询的表格。在本例中，`Record`类被映射到`records`表。通过将`Record`指定为`Query`的泛型，现在可以使用实体映射关系来操作数据库表。
 
-  Below you will find the exact same query performed using LINQ.
+  下面是使用LINQ来执行同样的查询语句。
 
   ```c#
   public void GetRecords() 
@@ -71,15 +72,15 @@
   }
   ```
 
-  As you can see LINQ is a much more condensed when compared to the SQL version of the query. You can supplement this `SELECT` query with additional LINQ conditions such as Where or OrderBy to refine your result.
+  正如你看到的那样，LINQ方式的查询比SQL方式要简介很多。您还可以使用其他LINQ条件(如Where或OrderBy)来补充这个“SELECT”查询，以优化结果。
 
   ```c#
   var results = conn.Table<Record>().Where(t => t.Age > 40).OrderByDescending(t => t.Age).ToList();
   ```
 
-  ## Insert Statement
+  ## Insert语句
 
-  Insert statements are even simpler than select queries. Again, this library supports both SQL and LINQ methods to execute your statement. An example of both methods can be seen below.
+  插入语句比Select查询更简单。 同样，这个库同时支持SQL和LINQ方式来执行语句。 下面是这两种方式的示例。
 
   ```c#
   public void InsertRecord() 
@@ -95,7 +96,7 @@
   }
   ```
 
-  And the LINQ version:
+  LINQ版本：
 
   ```c#
   public void InsertRecord() 
@@ -111,13 +112,13 @@
   }
   ```
 
-  Now that you can do insert statements you can perform Update too (conn.Update(record). keep in mind that in order to perform these operations your mapped table class **MUST ** include a mapped primary key, else the action will not work.
+  既然可以执行Insert语句，那么也可以执行Update语句。注意，映射表类**必须**包含一个主键，否则操作将不会生效。
 
-  ## Update Statement
+  ## Update语句
 
-  This is a quick demonstration of how to perform an update query using LINQ. The `conn.Update(record)` function uses the primary key of `record` (in this case, `record.Id`) to locate the record to update in the database. A consequence of this is that you cannot update the primary key ([you shouldn't be doing this anyway](https://stackoverflow.com/a/19316940/7511598)).
+  这是一个如何使用LINQ执行更新语句的快速演示。`conn.Update(record)` 方法使用`record`(在这里是`record.Id`)的主键在数据库中定位要更新的记录。注意主键是不能更新的。
 
-  ```
+  ```c#
   public void UpdateRecord(Guid id) 
   {
       var options = new SQLiteConnectionString(DataSource, false);
@@ -131,13 +132,13 @@
   }
   ```
 
-  If you prefer not to use LINQ, these queries can also be made using traditional SQL and the `Query<T>` method.
+  如果你不喜欢使用LINQ，这些查询也可以使用传统的SQL和` Query<T> `方法。
 
-  ## Delete Statement
+  ## Delete语句
 
-  The `Delete` Statement works similarly to a get request. You choose the table mapping you wish to use and then pass in a query parameter. In common instances, you delete records using the record's `Primary Key`. This property was set in the Record class;
+  `Delete` 语句的工作原理与get请求类似。选择希望使用的数据库映射，然后传入查询参数。一般情况下，使用`record`的主键 。这确保主键关联的记录会被删除
 
-  ```
+  ```c#
   public void DeleteRecord(string id) 
   {
       var options = new SQLiteConnectionString(DataSource, false);
@@ -147,7 +148,3 @@
       conn.Close();
   }
   ```
-
-  
-
-  This ensures that the record with the associated PK will be removed.

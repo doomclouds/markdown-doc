@@ -1,4 +1,4 @@
-﻿﻿﻿  # Introduction
+﻿﻿﻿﻿  # Introduction
 
   The library supports both synchronous and asynchronous requests to your SQLite tables. This guide will demonstrate how to make synchronous calls to your database. First of all, all connections made using the synchronous API must be made using the `SQLiteConnection` class. The example below shows how to initialise this class
 
@@ -136,7 +136,7 @@
 
   ## Delete Statement
 
-  The `Delete` Statement works similarly to a get request. You choose the table mapping you wish to use and then pass in a query parameter. In common instances, you delete records using the record's `Primary Key`. This property was set in the Record class;
+  The `Delete` Statement works similarly to a get request. You choose the table mapping you wish to use and then pass in a query parameter. In common instances, you delete records using the record's `Primary Key`. This property was set in the Record class.This ensures that the record with the associated PK will be removed.
 
   ```c#
   public void DeleteRecord(string id) 
@@ -150,5 +150,3 @@
   ```
 
 
-
-  This ensures that the record with the associated PK will be removed.

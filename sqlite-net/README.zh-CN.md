@@ -1,4 +1,4 @@
-﻿﻿﻿[English](README.md)|中文
+﻿﻿﻿﻿[English](README.md)|中文
 
 sqlite-net是一个简单快速的ORM和SQLITE驱动包.
 
@@ -8,4 +8,4 @@ sqlite-net是一个简单快速的ORM和SQLITE驱动包.
 - [特性](Introduction/Features.zh-CN.md)
   - [事务](Introduction/Transactions.zh-CN.md)
   - [自动迁移](Introduction/AutomaticMigrations.zh-CN.md)
-- [性能](Introduction/Performance.zh-CN.md)
+- [高性能](Introduction/Performance.zh-CN.md)
