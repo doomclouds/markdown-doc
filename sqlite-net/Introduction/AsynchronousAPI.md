@@ -1,4 +1,4 @@
-﻿﻿﻿## Synchronous API
+﻿# Synchronous API
 
   You can use the "asynchronous API" where calls do not block. You may care to use the asynchronous API for mobile applications in order to increase responsiveness.
 

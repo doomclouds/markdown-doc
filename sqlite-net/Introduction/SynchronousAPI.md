@@ -1,4 +1,4 @@
-﻿﻿## Introduction
+﻿# Introduction
 
   The library supports both synchronous and asynchronous requests to your SQLite tables. This guide will demonstrate how to make synchronous calls to your database. First of all, all connections made using the synchronous API must be made using the `SQLiteConnection` class. The example below shows how to initialise this class
 

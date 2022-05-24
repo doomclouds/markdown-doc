@@ -1,4 +1,4 @@
-﻿﻿## 介绍
+﻿# 介绍
 
   本库支持对SQLite的同步与异步操作。本指南将会演示如何同步的去调用你的数据库。 首先， 所有的同步API都必须使用`SQLiteConnection`类。 下面将展示如何初始化这个类。
 
@@ -78,7 +78,7 @@
   var results = conn.Table<Record>().Where(t => t.Age > 40).OrderByDescending(t => t.Age).ToList();
   ```
 
-  ## Insert语句
+## Insert语句
 
   Insert语句比Select查询更简单。 同样，本库同时支持SQL和LINQ方式来执行语句。 下面是这两种方式的示例。
 
@@ -114,7 +114,7 @@
 
   既然可以执行Insert语句，那么也可以执行Update语句。注意，映射表类**必须**包含一个主键，否则操作将不会生效。
 
-  ## Update语句
+## Update语句
 
   这是一个如何使用LINQ执行更新语句的快速演示。`conn.Update(record)` 方法使用`record`(在这里是`record.Id`)的主键在数据库中定位要更新的记录。注意主键是不能更新的。
 
@@ -134,7 +134,7 @@
 
   如果你不喜欢使用LINQ，这些查询也可以使用传统的SQL和` Query<T> `方法。
 
-  ## Delete语句
+## Delete语句
 
   `Delete` 语句的工作原理与get请求类似。选择希望使用的数据库映射，然后传入查询参数。一般情况下，我们使用`record`的主键来作为参数，主键的唯一性将确保关联的记录会被删除 。
 

@@ -1,17 +1,17 @@
-﻿﻿# Automatic Migrations 
+﻿# 自动迁移 
 
-   Code changes. Sometimes you need to associate new values with tables (entities) after the database has already been deployed and used for some time.
+   有时，在部署并使用数据库一段时间后，需要将新值与表(实体)关联。
 
-   Thanks to the relational model, entities in the database can have values associated with them simply by adding new tables and relating those new tables to the entity.
+   因为有了实体关系模型，数据库表格与实体对象间的相互关联变得十分容易。
 
-   This, however, is not always ideal since it requires performing joins whenever you need to query those values for the entity.
+   但是，每次查询实体的值时都需要建立连接。
 
-   To help, sqlite-net supports automatic migrations.
+   为了提供帮助，sqlite-net支持自动迁移。
 
-   ## Details
+## 详细说明
 
-   Tables are automatically migrated when `CreateTable` is called. If the table already exists, its metadata is queried and compared to the structure of the class passed to `CreateTable`. If the two structures are different, then the table is automatically migrated to match the code.
+   当调用`CreateTable`时，表会自动迁移。如果表已经存在，则查询它的元数据，并与传递给`CreateTable`的类的结构进行比较。 如果两个结构不同，则自动迁移表以匹配代码。
 
-   The automatic migration, currently, only supports *adding new columns*. If your classes have new properties that are not associated with columns in the table, then `alter table ... add column` commands will be executed to bring the database up to date. These new columns will not have default values and will therefore be `null`.
+   自动迁移目前只支持*添加新列*。如果你的类有与表中的列无关的新属性, 那么`alter table ... add column`将执行“添加列”命令以更新数据库. 新列如果没有默认值将会被设置为 `null`.
 
-   Possible additional migrations *that are not supported* include, deletion of columns, changing the types of columns, and renaming columns. If there is demand, these migrations can be added.
+   不支持删除列、更改列的数据类型和重命名列。

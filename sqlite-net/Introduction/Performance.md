@@ -1,10 +1,10 @@
-﻿﻿﻿## Performance
+﻿# Performance
 
-### Serializing 5000 objects on iOS 5 with an iPhone 4S
+## Serializing 5000 objects on iOS 5 with an iPhone 4S
 
 The test was performed using the following code: https://gist.github.com/3137502
 
-#### Serialization
+### Serialization
 
 | Serializer              | Time (s)      |
 | ----------------------- | ------------- |
@@ -13,7 +13,7 @@ The test was performed using the following code: https://gist.github.com/3137502
 | BinaryWriter Reflection | 0.4785611     |
 | **sqlite-net**          | **0.7273159** |
 
-#### Deserialization
+### Deserialization
 
 | Serializer              | Time (s)      |
 | ----------------------- | ------------- |

@@ -1,10 +1,10 @@
-﻿# Transactions
+﻿# 事务
 
-   Library supports nested transactions. They are available both in synchronous and asynchronous API.
+   本库支持嵌套事务。它们在同步API和异步API中都可以使用。
 
-   ## Synchronous API
+## 同步API
 
-   When using synchronous `SQLiteConnection` the database calls to be executed inside a transaction should be passed as an `Action` to `RunInTransaction(Action)`:
+   在使用同步的`SQLiteConnection`时，执行内部事务需要将`Action`的代理传递给`RunInTransaction(Action)`方法：
 
    ```c#
    var db = new SQLiteConnection(path);
@@ -15,11 +15,11 @@
    });
    ```
 
-   Note that inside the `Action` delegate the same instance of `SQLiteConnection` is being used as `RunInTransaction` was called on (named `db` in the example above).
+   注意在`Action`调用`SQLiteConnection`时使用的是相同实例(在上面的例子中是`db`对象)。
 
-   ## Asynchronous API
+## 异步API
 
-   When using asynchronous `SQLiteAsyncConnection` the database calls to be executed inside a transaction should be passed as an `Action<SQLiteConnection>` to `RunInTransactionAsync(Action<SQLiteConnection>)`:
+   在使用异步的`SQLiteAsyncConnection`时，执行内部事务需要将`Action<SQLiteConnection>`的代理传递给`RunInTransactionAsync(Action<SQLiteConnection>)`方法：
 
    ```c#
    var db = new SQLiteAsyncConnection(path);
@@ -30,20 +30,18 @@
    });
    ```
 
-   Note that inside the `Action` delegate an instance of `SQLiteConnection` (named `tran` in the example above) is being used, not the instance of `SQLiteAsyncConnection` instance that `RunInTransactionAsync` was called on (named `db` in the example above).
+   注意，在`Action`委托中使用的是`SQLiteConnection`实例(在上面的例子中名为`tran`)，而不是调用的`SQLiteAsyncConnection`实例(在上面的例子中名为`db`)。
 
-   ## Low Level API
+## 低级API
 
-   Most of the time `RunInTransaction` and `RunInTransactionAsync` methods should be all you need. If for some reason you need more control, `SQLiteConnection` contains an alternative set of methods for dealing with transactions:
+   大多数时候，`RunInTransaction `和`RunInTransactionAsync `方法可以满足需求。 如果出于某种原因你需要更多的控制，`SQLiteConnection`包含了一组处理事务的替代方法:
 
-   - `BeginTransaction` starts a new transaction. It throws an exception if a transaction is already open
-   - `SaveTransactionPoint` creates a new save point in the transaction to which a rollback is possible. If no transaction is in progress, it starts a new one, therefore it can be used as a safer alternative to `BeginTransaction`.
-   - `Commit` commits the current transaction.
-   - `Rollback` completely rolls back the current transaction.
-   - `RollbackTo` can rollback to an existing save point, returned by `SaveTransactionPoint`.
+   - `BeginTransaction` 启动一个新事务，如果事务已经打开，则抛出异常。
+   - `SaveTransactionPoint` 在事务中创建一个可以回滚的新保存节点。如果没有正在进行的事务，它会启动一个新的事务，因此它可以作为`BeginTransaction `的安全替代。
+   - `Commit` 提交当前事务。
+   - `Rollback` 完全回滚当前事务。
+   - `RollbackTo` 可以回滚到`SaveTransactionPoint`返回的现有保存节点。
 
-   ## Handling Errors
+## 处理异常
 
-   If your transaction code throws an exception, it will be bubbled up to the caller of `RunInTransaction` after the transaction is rolled back.
-
-   [ Add a custom footer](https://github.com/praeclarum/sqlite-net/wiki/_new?wiki[name]=_Footer)
+   如果你的事务抛出一个异常，在事务回滚后将会被`RunInTransaction`的调用者所捕获。
