@@ -1,8 +1,8 @@
-﻿﻿# Transactions
+﻿﻿﻿## Transactions
 
    Library supports nested transactions. They are available both in synchronous and asynchronous API.
 
-   ## Synchronous API
+   ### Synchronous API
 
    When using synchronous `SQLiteConnection` the database calls to be executed inside a transaction should be passed as an `Action` to `RunInTransaction(Action)`:
 
@@ -17,7 +17,7 @@
 
    Note that inside the `Action` delegate the same instance of `SQLiteConnection` is being used as `RunInTransaction` was called on (named `db` in the example above).
 
-   ## Asynchronous API
+   ### Asynchronous API
 
    When using asynchronous `SQLiteAsyncConnection` the database calls to be executed inside a transaction should be passed as an `Action<SQLiteConnection>` to `RunInTransactionAsync(Action<SQLiteConnection>)`:
 
@@ -32,7 +32,7 @@
 
    Note that inside the `Action` delegate an instance of `SQLiteConnection` (named `tran` in the example above) is being used, not the instance of `SQLiteAsyncConnection` instance that `RunInTransactionAsync` was called on (named `db` in the example above).
 
-   ## Low Level API
+   ### Low Level API
 
    Most of the time `RunInTransaction` and `RunInTransactionAsync` methods should be all you need. If for some reason you need more control, `SQLiteConnection` contains an alternative set of methods for dealing with transactions:
 
@@ -42,6 +42,6 @@
    - `Rollback` completely rolls back the current transaction.
    - `RollbackTo` can rollback to an existing save point, returned by `SaveTransactionPoint`.
 
-   ## Handling Errors
+   ### Handling Errors
 
    If your transaction code throws an exception, it will be bubbled up to the caller of `RunInTransaction` after the transaction is rolled back.

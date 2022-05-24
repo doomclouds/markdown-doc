@@ -1,4 +1,4 @@
-﻿﻿﻿# Automatic Migrations 
+﻿﻿﻿﻿## Automatic Migrations 
 
    Code changes. Sometimes you need to associate new values with tables (entities) after the database has already been deployed and used for some time.
 
@@ -8,7 +8,7 @@
 
    To help, sqlite-net supports automatic migrations.
 
-   ## Details
+   ### Details
 
    Tables are automatically migrated when `CreateTable` is called. If the table already exists, its metadata is queried and compared to the structure of the class passed to `CreateTable`. If the two structures are different, then the table is automatically migrated to match the code.
 

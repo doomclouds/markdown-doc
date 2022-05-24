@@ -1,10 +1,10 @@
-﻿# Synchronous API
+﻿﻿﻿﻿## 异步API
 
-  You can use the "asynchronous API" where calls do not block. You may care to use the asynchronous API for mobile applications in order to increase responsiveness.
+  你可以在不需要阻塞的地方使用异步API。 为了提高响应速度，你可能在移动应用程序使用异步API。
 
-  The asynchronous library uses the Task Parallel Library (TPL). As such, normal use of Task objects, and the async and await keywords will work for you.
+  异步库使用任务并行库(TPL)。因此，可以正常使用`Task`对象以及`async`和`await`关键字。
 
-  Once you have defined your entity, you can automatically generate tables by calling CreateTableAsync:
+  一旦你定义了你的实体，你可以通过调用`CreateTableAsync`来自动生成表：
 
   ```c#
   var conn = new SQLiteAsyncConnection("foofoo");
@@ -14,7 +14,7 @@
   });
   ```
 
-  You can insert rows in the database using Insert. If the table contains an auto-incremented primary key, then the value for that key will be available to you after the insert:
+  可以使用insert在数据库中插入行。如果表包含一个自动递增的主键，那么该键的值将在插入后返还给你：
 
   ```c#
   Stock stock = new Stock()
@@ -29,9 +29,9 @@
   });
   ```
 
-  Similar methods exist for UpdateAsync and DeleteAsync.
+  `UpdateAsync`和`DeleteAsync`用法很相似。
 
-  Querying for data is most straightforwardly done using the Table method. This will return an AsyncTableQuery instance back, whereupon you can add predicates for constraining via WHERE clauses and/or adding ORDER BY. The database is not physically touched until one of the special retrieval methods - ToListAsync, FirstAsync, or FirstOrDefaultAsync - is called.
+  查询数据最直接的方法是使用`Table`方法。 它将返回一个`AsyncTableQuery`实例，然后你可以通过`WHERE`子句和/或添加`ORDER BY`来添加约束查询条件。 知道调用`ToListAsync`、`FirstAsync`或者`FirstOrDefaultAsync`才会执行真正的数据库查询语句。
 
   ```c#
   var conn = new SQLiteAsyncConnection("foofoo");
@@ -44,9 +44,9 @@
   });
   ```
 
-  There are a number of low-level methods available. You can also query the database directly via the QueryAsync method. Over and above the change operations provided by InsertAsync etc you can issue ExecuteAsync methods to change sets of data directly within the database.
+  下面是一些低级API。 你也可以通过`QueryAsync`方法直接查询数据库。除了`InsertAsync`等提供的更改操作之外，你还可以使用`ExecuteAsync`方法来直接更改数据库中的数据。
 
-  Another helpful method is ExecuteScalarAsync. This allows you to return a scalar value from the database easily:
+  另一个有用的方法是`ExecuteScalarAsync`。 你可以从数据库轻松返回一个标量值：
 
   ```c#
   var conn = new SQLiteAsyncConnection("foofoo");

@@ -1,6 +1,6 @@
-﻿﻿﻿  # 介绍
+﻿﻿## 介绍
 
-  本库支持对SQLite的同步与异步操作。本指南将会演示如何同步的去调用您的数据库。 首先， 所有的同步API都必须使用`SQLiteConnection`类。 下面将展示如何初始化这个类。
+  本库支持对SQLite的同步与异步操作。本指南将会演示如何同步的去调用你的数据库。 首先， 所有的同步API都必须使用`SQLiteConnection`类。 下面将展示如何初始化这个类。
 
   ```c#
   SQLiteConnection _connection;
@@ -15,11 +15,11 @@
   }
   ```
 
-  现在您已经初始化并打开了该对象的连接，现在可以开始查询数据库了。
+  现在你已经初始化并打开了该对象的连接，可以开始查询数据库了。
 
-  ## Select查询
+## Select查询
 
-  本库支持在数据库中执行Select查询的多种方式，您可以选择使用SQL或者LINQ的方式。两种方式各有千秋， 但是，使用Linq比SQL更加简洁，因为它使得您的代码更符合.Net的习惯 。下面是一个使用SQL方法的Select查询示例。 包括本节使用的类表映射
+  本库支持在数据库中执行Select查询的多种方式，你可以选择使用SQL或者LINQ的方式。两种方式各有千秋， 但是，使用Linq比SQL更加简洁，因为它使得你的代码更符合.Net的习惯 。下面是一个使用SQL方法的Select查询示例。 包括本节使用的类表映射。
 
   ```c#
   [Table("records")]
@@ -72,7 +72,7 @@
   }
   ```
 
-  正如你看到的那样，LINQ方式的查询比SQL方式要简介很多。您还可以使用其他LINQ条件(如Where或OrderBy)来补充这个“SELECT”查询，以优化结果。
+  正如你看到的那样，LINQ方式的查询比SQL方式要简介很多。你还可以使用其他LINQ条件(如Where或OrderBy)来补充这个`SELECT`查询，以优化结果。
 
   ```c#
   var results = conn.Table<Record>().Where(t => t.Age > 40).OrderByDescending(t => t.Age).ToList();
@@ -80,7 +80,7 @@
 
   ## Insert语句
 
-  插入语句比Select查询更简单。 同样，这个库同时支持SQL和LINQ方式来执行语句。 下面是这两种方式的示例。
+  Insert语句比Select查询更简单。 同样，本库同时支持SQL和LINQ方式来执行语句。 下面是这两种方式的示例。
 
   ```c#
   public void InsertRecord() 
@@ -136,7 +136,7 @@
 
   ## Delete语句
 
-  `Delete` 语句的工作原理与get请求类似。选择希望使用的数据库映射，然后传入查询参数。一般情况下，使用`record`的主键 。这确保主键关联的记录会被删除
+  `Delete` 语句的工作原理与get请求类似。选择希望使用的数据库映射，然后传入查询参数。一般情况下，我们使用`record`的主键来作为参数，主键的唯一性将确保关联的记录会被删除 。
 
   ```c#
   public void DeleteRecord(string id) 

@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿English|[中文](README.zh-CN.md)
+﻿﻿﻿﻿﻿﻿English|[中文](README.zh-CN.md)
 
 Welcome to sqlite-net, the simple and fast ORM and sqlite driver.
 

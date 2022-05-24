@@ -1,8 +1,8 @@
-﻿# Features
+﻿﻿## Features
 
   Documentation of the various features provided by the library
 
-  ## ORM
+  ### ORM
 
   The ORM is able to take a .NET class definition and convert it to a SQL table definition. (Most ORMs go in the other direction.) It does this by examining all public properties of your classes and is assisted by attributes that you can use to specify column details.
 

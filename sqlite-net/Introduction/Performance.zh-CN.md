@@ -1,28 +1,28 @@
-﻿# Performance
+﻿﻿# 性能评估
 
-## Serializing 5000 objects on iOS 5 with an iPhone 4S
+## 使用iPhone 4S在iOS 5上序列化5000个对象
 
-The test was performed using the following code: https://gist.github.com/3137502
+测试使用以下代码执行： https://gist.github.com/3137502
 
-### Serialization
+### 序列化
 
-| Serializer              | Time (s)      |
+| 序列化器                | 时间(s)       |
 | ----------------------- | ------------- |
 | BinaryFormatter         | 0.6671089     |
 | BinaryWriter Explicit   | 0.1163388     |
 | BinaryWriter Reflection | 0.4785611     |
 | **sqlite-net**          | **0.7273159** |
 
-### Deserialization
+### 反序列化
 
-| Serializer              | Time (s)      |
+| 反列化器                | 时间 (s)      |
 | ----------------------- | ------------- |
 | BinaryFormatter         | 1.3048520     |
 | BinaryWriter Explicit   | 0.1911826     |
 | BinaryWriter Reflection | 0.6832386     |
 | **sqlite-net**          | **0.7749375** |
 
-The following object was used in these tests:
+在这些测试中使用了以下对象：
 
 ~~~c#
 ```

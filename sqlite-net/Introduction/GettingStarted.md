@@ -1,4 +1,4 @@
-﻿﻿﻿﻿# Getting Started 
+﻿﻿﻿## Getting Started 
 
  **sqlite-net** is designed to make working with SQLite very easy in a .NET environment.
 
